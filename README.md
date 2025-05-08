@@ -1,72 +1,79 @@
-Iris Flower Classification API
-This repository contains a FastAPI application that serves a machine learning model trained on the classic Iris dataset. The API allows users to submit sepal and petal measurements and get a prediction of the iris species (Setosa, Versicolor, or Virginica).
+# Iris Flower Classification API
 
-Features
-FastAPI-based REST API
+This repository contains a FastAPI application that serves a machine learning model trained on the classic Iris dataset.
+The API allows users to submit sepal and petal measurements and get a prediction of the iris species (Setosa, Versicolor, or Virginica).
 
-Scikit-learn RandomForestClassifier model
+## Features
 
-Model file: iris_model.pkl
+* FastAPI-based REST API
+* Scikit-learn RandomForestClassifier model
+* Model file: iris\_model.pkl
+* Swagger UI for easy testing at /docs
+* Input validation with Pydantic schemas
 
-Swagger UI for easy testing at /docs
+## Project Structure
 
-Input validation with Pydantic schemas
-
-Project Structure
-ML_deployment/
+ML\_deployment/
 ├── app/
-│ ├── init.py
-│ ├── main.py # FastAPI app
-│ ├── model.py # Model loading and prediction logic
-│ └── schemas.py # Pydantic schema for request validation
-├── iris_model.pkl # Saved trained ML model
-├── requirements.txt # Python dependencies
-└── README.md # This file
+│   ├── **init**.py
+│   ├── main.py        # FastAPI app
+│   ├── model.py       # Model loading and prediction logic
+│   └── schemas.py     # Pydantic schema for request validation
+├── iris\_model.pkl     # Saved trained ML model
+├── requirements.txt   # Python dependencies
+└── README.md          # This file
 
-How to Run
-Clone the repository
+## How to Run
 
-git clone https://github.com/Rawatkb/MI_deployment.git
-cd MI_deployment
+### 1. Clone the repository
 
-Create a virtual environment and install dependencies
+git clone [https://github.com/Rawatkb/MI\_deployment.git](https://github.com/Rawatkb/MI_deployment.git)
+cd MI\_deployment
+
+### 2. Create a virtual environment and install dependencies
 
 python -m venv venv
-venv\Scripts\activate (On Windows)
+venv\Scripts\activate    (On Windows)
 or
 source venv/bin/activate (On Mac/Linux)
 
 pip install -r requirements.txt
 
-Run the FastAPI server
+### 3. Run the FastAPI server
 
-uvicorn app.main:app --reload
+uvicorn app.main\:app --reload
 
-Test the API
+### 4. Test the API
 
-Open your browser and go to http://127.0.0.1:8000/docs
-Use the interactive Swagger UI to test the /predict_species endpoint
+Open your browser and go to:
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+Use the Swagger UI to test the /predict\_species endpoint.
 
-Example Request
-POST /predict_species
+## Example Request
 
-{
-"sepal_length": 5.1,
-"sepal_width": 3.5,
-"petal_length": 1.4,
-"petal_width": 0.2
-}
-
-Response
+POST /predict\_species
 
 {
-"prediction_index": 0,
-"predicted_species": "setosa"
+"sepal\_length": 5.1,
+"sepal\_width": 3.5,
+"petal\_length": 1.4,
+"petal\_width": 0.2
 }
 
-Notes
-The Iris dataset is used as a demo for machine learning model deployment.
-The same pattern can be applied to real-world ML applications such as fraud detection, health diagnosis, or credit scoring.
+Response:
 
-Author
+{
+"prediction\_index": 0,
+"predicted\_species": "setosa"
+}
+
+## Notes
+
+This project is for educational purposes to demonstrate machine learning model deployment with FastAPI.
+The same deployment structure can be adapted to real-world applications such as fraud detection, medical diagnosis, and more.
+
+## Author
+
 Rawatkb
+
+
